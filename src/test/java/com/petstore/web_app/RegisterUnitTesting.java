@@ -31,7 +31,7 @@ public class RegisterUnitTesting {
     @Test
     void testRegisterUserSuccess() {
         String username = "newUser";
-        String password = "passwordNewUser";
+        String password = "passwordNew";
         String email = "newuser@gmail.com";
 
         when(userRepository.findByEmail(email)).thenReturn(null);
@@ -46,7 +46,7 @@ public class RegisterUnitTesting {
     @Test
     void testRegisterUserEmailTaken() {
         String username = "newUser";
-        String password = "passwordNewUser";
+        String password = "passwordNew";
         String email = "newuser@gmail.com";
 
         when(userRepository.findByEmail(email)).thenReturn(new User(username, password, email));
@@ -59,7 +59,7 @@ public class RegisterUnitTesting {
     @Test
     void testRegisterUserFailure() {
         String username = "newUser";
-        String password = "passwordNewUser";
+        String password = "passwordNew";
         String email = "newuser@gmail.com";
 
         when(userRepository.findByEmail(email)).thenReturn(null);
