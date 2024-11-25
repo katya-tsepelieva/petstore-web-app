@@ -31,7 +31,7 @@ public class LoginUnitTesting {
     @Test
     void testLoginUserSuccessByUsername() {
         String username = "existingUser";
-        String password = "passwordUser";
+        String password = "passworduser";
         User user = new User(username, password, "user@gmail.com");
 
         when(userRepository.findByUsernameAndPassword(username, password)).thenReturn(user);
@@ -45,7 +45,7 @@ public class LoginUnitTesting {
     @Test
     void testLoginUserSuccessByEmail() {
         String email = "user@gmail.com";
-        String password = "passwordUser";
+        String password = "passworduser";
         User user = new User("existingUser", password, email);
 
         when(userRepository.findByEmail(email)).thenReturn(user);
@@ -60,7 +60,7 @@ public class LoginUnitTesting {
     void testLoginUserFailure() {
         // Arrange
         String username = "nonExistingUser";
-        String password = "passwordUser";
+        String password = "passworduser";
 
         when(userRepository.findByUsernameAndPassword(username, password)).thenReturn(null);
 
@@ -72,7 +72,7 @@ public class LoginUnitTesting {
     @Test
     void testLoginUserFailureByEmail() {
         String email = "errorEmail@gmail.com";
-        String password = "passwordUser";
+        String password = "passworduser";
 
         when(userRepository.findByEmail(email)).thenReturn(null);
 
