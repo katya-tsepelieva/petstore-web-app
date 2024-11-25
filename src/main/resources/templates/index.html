@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pet Store</title>
+</head>
+<body>
+<h1>Welcome to Pet Store!</h1>
+
+<!-- Перевірка, чи залогінений користувач -->
+<div th:if="${loggedInUser != null}">
+    <p>Welcome, <span th:text="${loggedInUser.username}"></span>!</p>
+    <a href="/web_app_war/logout">Logout</a>
+</div>
+
+<div th:if="${loggedInUser == null}">
+    <a href="/web_app_war/login">Login</a> | <a href="/web_app_war/register">Register</a>
+</div>
+
+<h2>Available Products</h2>
+<a href="/web_app_war/products">View Products</a>
+
+</body>
+</html>

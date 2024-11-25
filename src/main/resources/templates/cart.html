@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Shopping Cart</h1>
+<a href="/web_app_war/products">Back to Products</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${cartItems}">
+        <td th:text="${item.product.name}">Product Name</td>
+        <td th:text="${item.quantity}">1</td>
+        <td th:text="${item.product.price}">0.00</td>
+        <td th:text="${item.product.price.multiply(BigDecimal.valueOf(item.quantity))}">0.00</td>
+        <td>
+            <form th:action="@{/cart/remove}" method="post">
+                <input type="hidden" name="productId" th:value="${item.product.id}" />
+                <button type="submit">Remove</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="3" style="text-align: right;">Total:</td>
+        <td th:text="${totalPrice}">0.00</td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>
