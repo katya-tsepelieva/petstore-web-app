@@ -29,7 +29,7 @@ public class ProductIntegrationTest {
     public void setup() {
         productRepository.deleteAll();
         productRepository.save(new Product("Cat Food", new BigDecimal("10.99")));
-        productRepository.save(new Product("Dog Toy", new BigDecimal("5.49")));
+        productRepository.save(new Product("Dog Toy", new BigDecimal("5.48")));
     }
 
     @Test
