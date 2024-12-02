@@ -29,4 +29,4 @@ jobs:
       run: mvn install
 
     - name: Run Selenium tests
-      run: mvn test -Dtest=ProductByCategoryTest,RegistrationTest
+      run: mvn test -Dtest=ProductCategory,Register
