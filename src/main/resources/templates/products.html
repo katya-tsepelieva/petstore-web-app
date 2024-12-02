@@ -3,40 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" th:href="@{/css/style-product.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 <h1>Products</h1>
 <a href="/web_app_war/">Back to Home</a>
-<table border="1">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Stock</th>
-        <th>Image</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="product : ${products}">
-        <td th:text="${product.name}">Product Name</td>
-        <td th:text="${product.description}">Product Description</td>
-        <td th:text="${product.price}">0.00</td>
-        <td th:text="${product.stock}">0</td>
-        <td>
-            <img th:src="${product.imageUrl}" alt="Product Image" style="width: 100px; height: auto;">
-        </td>
-        <td>
-            <form th:action="@{/cart/add}" method="post">
-                <input type="hidden" name="productId" th:value="${product.id}" />
-                <input type="number" name="quantity" min="1" value="1" required />
-                <button type="submit">Add to Cart</button>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
+
+<div class="filter-container">
+<h3>Filter by Category</h3>
+<form method="get" action="/web_app_war/products">
+    <label>
+        <select name="category">
+            <option th:each="category : ${categories}"
+                    th:value="${category}"
+                    th:text="${category}"
+                    th:selected="${category == selectedCategory}">
+            </option>
+        </select>
+    </label>
+    <button type="submit">Filter</button>
+</form>
+</div>
+
+<div class="products-container">
+    <div th:each="product : ${products}" class="product">
+        <img th:src="@{/images/{image}(image=${product.imageUrl})}" alt="Product Image" class="product-image">
+        <h3 th:text="${product.name}">Product Name</h3>
+        <p class="product-price" th:text="${product.price}">$0.00</p>
+        <a th:href="@{/cart/add(productId=${product.id})}" class="add-to-cart">
+            <i class="fas fa-shopping-cart"></i> <!-- Іконка кошика -->
+        </a>
+    </div>
+</div>
+
+
 </body>
 </html>

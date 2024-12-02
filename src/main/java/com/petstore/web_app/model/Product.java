@@ -3,6 +3,7 @@ package com.petstore.web_app.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Table(name = "products")
@@ -18,6 +19,8 @@ public class Product {
     private BigDecimal price;
 
     private int stock;
+
+    private String category;
 
     @Column(name = "image_url")
     private String imageUrl;
@@ -38,6 +41,13 @@ public class Product {
         this.stock = stock;
         this.imageUrl = imageUrl;
     }
+
+    public Product(String name, BigDecimal price, String category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+
 
     public Long getId() {
         return id;
@@ -85,5 +95,29 @@ public class Product {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Objects.equals(name, product.name) &&
+                Objects.equals(category, product.category) &&
+                (price != null && product.price != null && price.compareTo(product.price) == 0);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price, category);
     }
 }

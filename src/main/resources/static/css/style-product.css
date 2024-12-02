@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Стилі для контейнера фільтра */
+.filter-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.category-select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.filter-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #34b23b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.filter-button:hover {
+    background-color: #28912f;
+}
+
+/* Стилі для контейнера товарів */
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-top: 30px;
+    padding-left: 20px;
+}
+
+/* Стилі для кожного товару */
+.product {
+    width: 22%; /* 4 товари в ряд */
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100%;       /* Зображення розтягується по ширині батьківського елемента */
+    height: 200px;     /* Встановлюємо сталу висоту для зображення */
+    object-fit: contain; /* Зображення підлаштовується під розмір контейнера, зберігаючи пропорції */
+    border-radius: 8px;
+}
+
+.product h4 {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.product p {
+    margin-top: 5px;
+    font-size: 1em;
+    color: #34b23b;
+}
+
+.add-to-cart {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #34b23b;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.add-to-cart:hover {
+    background-color: #28912f;
+}
+
+.add-to-cart i {
+    margin-right: 8px;
+}
+
+/* Стилі для заголовків і посилань */
+h1, h3 {
+    text-align: center;
+    color: #333;
+}
+
+/* Стилі для посилання на "Back to Home" */
+a {
+    display: inline-block;
+    margin: 20px auto;
+    text-decoration: none;
+    color: #34b23b;
+    font-size: 1em;
+}
+
+a:hover {
+    color: #28912f;
+}

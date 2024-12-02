@@ -1,3 +1,4 @@
+/* Загальні стилі */
 * {
     margin: 0;
     padding: 0;
@@ -5,17 +6,27 @@
     font-family: Arial, sans-serif;
 }
 
+html, body {
+    height: 100%; /* Встановлюємо висоту на 100% */
+    margin: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column; /* Вертикальний потік елементів */
+    min-height: 100vh; /* Мінімальна висота на всю висоту екрану */
     background-color: #121212; /* Темний фон */
     color: #e4e4e4; /* Світлий текст */
     line-height: 1.6;
-    padding: 20px;
+    padding: 0 20px; /* Відступи зліва та справа */
 }
 
+/* Заголовки */
 h1, h2, h3 {
     color: #34b23b; /* Зелений колір */
 }
 
+/* Посилання */
 a {
     color: #34b23b; /* Зелені посилання */
     text-decoration: none;
@@ -33,6 +44,7 @@ header {
     padding: 10px;
     background-color: #333;
     color: #fff;
+    width: 100%; /* Хедер займає всю ширину */
 }
 
 header a {
@@ -49,6 +61,7 @@ header a:hover {
     font-size: 24px;
     color: #fff;
     margin-right: 15px;
+    display: inline-block; /* Забезпечує відображення в один рядок */
 }
 
 .icon-link:hover {
@@ -93,11 +106,12 @@ th {
 
 /* Стилі для футера */
 footer {
-    margin-top: 40px;
+    margin-top: auto; /* Це змушує футер бути внизу */
     padding: 20px;
     background-color: #333;
     color: #fff;
     text-align: center;
+    width: 100%; /* Футер займає всю ширину */
 }
 
 footer a {
