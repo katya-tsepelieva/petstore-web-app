@@ -22,10 +22,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'  
 
-    - name: Set up Maven
-      uses: actions/setup-maven@v2
-      with:
-        maven-version: '3.8.4'
+    - name: Install Maven
+      run: sudo apt-get install maven
     
     - name: Install dependencies
       run: mvn install
