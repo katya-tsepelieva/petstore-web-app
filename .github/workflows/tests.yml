@@ -23,9 +23,8 @@ jobs:
         distribution: 'temurin'  
 
     - name: Set up Maven
-      uses: actions/setup-java@v3
+      uses: actions/setup-maven@v2
       with:
-        java-version: '17'
         maven-version: '3.8.4'
     
     - name: Install dependencies
