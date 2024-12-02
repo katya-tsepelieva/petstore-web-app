@@ -20,12 +20,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'temurin'
-
-    - name: Set up Maven
-      uses: actions/setup-maven@v3 
-      with:
-        maven-version: '3.8.1'
+        distribution: 'temurin'  
     
     - name: Install dependencies
       run: mvn install
